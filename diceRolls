@@ -1,0 +1,40 @@
+import java.util.Random;
+/**
+ * Write a description of class DiceRole here.
+ *
+ * @Ronae 
+ * @3/21/18 wednesday (a version number or a date)
+ */
+public class DiceRole{
+   public void simpleSimulate(int rolls){
+       Random rand = new Random();
+       int twos = 0;
+       int tens = 0;
+       for (int k = 0; k<rolls; k++){
+           int d1 = rand.nextInt(6)+1; 
+           int d2 = rand.nextInt(6)+1;
+        if(d1+d2 == 2){
+             twos++;
+        }
+        if (d1+d2 == 10){
+            tens++;
+        }
+        System.out.println("2's = \t" + twos + "\t" + 100.0 * 2/rolls);
+        System.out.println("10's = \t" + tens + "\t" + 100.0 * 10/rolls); 
+    }
+  }
+  public void simulate (int rolls){
+      Random rand = new Random();
+      int [] counts = new int [13];
+      for (int k =0; k<rolls; k++){
+          int d1 = rand.nextInt(6)+1; 
+          int d2 = rand.nextInt(6)+1;
+          counts[d1+d2]++;
+          
+        }
+    
+    for (int k = 2; k<= rolls; k++){
+        System.out.println(k + ";s=\t" + counts[k] + "\t");
+    }
+  }
+}
